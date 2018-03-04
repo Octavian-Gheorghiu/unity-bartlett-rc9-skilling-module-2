@@ -42,7 +42,7 @@
 <li>Gestures</li>
 <li>Speech</li>
 </ol>
-<li>Session 3: Shared experiences &Acirc;&nbsp;</li>
+<li>Session 3: Shared experiences</li>
 <ol>
 <li>How shared holograms work</li>
 <li>Setting up the server</li>
