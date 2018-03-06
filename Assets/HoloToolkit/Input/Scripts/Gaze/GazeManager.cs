@@ -4,6 +4,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace HoloToolkit.Unity.InputModule
 {
@@ -140,6 +142,10 @@ namespace HoloToolkit.Unity.InputModule
 
         private float lastHitDistance = 2.0f;
 
+        //THIS IS WHERE I WILL ADD MY OWN VARIABLES
+        List<string> seenObjects;
+
+        // THIS IS WERE I WILL ADD CODE TO BE EXECUTED BEFORE THE SIMULATION STARTS
         protected override void Awake()
         {
             base.Awake();
@@ -153,8 +159,15 @@ namespace HoloToolkit.Unity.InputModule
             FindGazeTransform();
         }
 
+        private void Start()
+        {
+            seenObjects = new List<string>();
+        }
+
+        // THIS IS WHERE I WILL ADD CODE TO MAKE GAZE INTREACTIONS
         private void Update()
         {
+
             if (!FindGazeTransform())
             {
                 return;
@@ -162,8 +175,26 @@ namespace HoloToolkit.Unity.InputModule
 
             if (DebugDrawRay)
             {
+                // GazeOrigin is the HoloLens device, or my head
+                // HitPosition is the closest object a ray from the HoloLens hits
                 Debug.DrawRay(GazeOrigin, (HitPosition - GazeOrigin), Color.white);
+                Debug.Log("My head is at position: " + GazeOrigin.ToString());
+                Debug.Log("Object closest to me is at position: " + HitPosition.ToString());
             }
+
+            // If I see the pink cube it should spin
+            if(HitObject.transform.name == "SpinningCube")
+            {
+                HitObject.transform.GetComponent<CubeManager>().SpinCube();
+                seenObjects.Add(HitObject.transform.name);
+            } 
+            if(HitObject.transform.name != "SpinningCube")
+            {
+                HitObject.transform.GetComponent<CubeManager>().StopSpinCube();
+            }
+    
+            // Homework: Detect the hidden object
+
         }
 
         private bool FindGazeTransform()
