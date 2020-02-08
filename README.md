@@ -16,8 +16,8 @@
 </ol>
 <h1><strong>Materials Needed</strong></h1>
 <ol>
-<li>Unity Game Engine, Version 2017.3</li>
-<li>Visual Studio Community 2017</li>
+<li>Unity Game Engine, Version 2018.x</li>
+<li>Visual Studio Community 2019</li>
 </ol>
 <h1><strong>Verification</strong></h1>
 <ol>
