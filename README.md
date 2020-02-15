@@ -16,7 +16,7 @@
 </ol>
 <h1><strong>Materials Needed</strong></h1>
 <ol>
-<li>Unity Game Engine, Version 2019.x</li>
+<li>Unity Game Engine, Version 2018.4.5f1</li>
 <li>Visual Studio Community 2019</li>
 </ol>
 <h1><strong>Verification</strong></h1>
